@@ -1,4 +1,4 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><div id="root"></div><script>const configuration={"documents":["2L3TNOC4.woff2","6HBTCF3E.woff2","7UAGB34N.woff2","CM4I3IZK.png","DCUCO6EG.woff2","EDUFJISK.woff2","ESVYJHOG.woff2","GWBPHQBQ.woff2","KZYIEKM3.woff2","PQNVRRKH.otf","RK4X2PXO.woff2","WM77GZQE.ttf","XNAEWJ63.png","ZITNQAWX.woff2"],"hasStyles":true,"host":new URL(".", location.href).href.replace(/\/$/,""),"lease":"eyJmIjoiZmlsZS0wMU02RVBFQzhGRVpXMUVZWjVZUlI3TTc2UiIsInIiOiJmaWxlcmV2aXNpb24tMDFNNkVRVDBLNTVRWTIzWDNNOThIQTFRUFkiLCJvIjoidXNlci0wMU00MUJDSFZZSzlSUU5aQUQ3MjdEQTgzUiIsInUiOiJ1c2VyLTAxTTQxQkNIVllLOVJRTlpBRDcyN0RBODNSIiwibSI6ImxhcmdlLXBheWxvYWRzL3VzZXItMDFNNDFCQ0hWWUs5UlFOWkFENzI3REE4M1IvaG9zdGVkLWZpbGUvZmlsZS0wMU02RVBFQzhGRVpXMUVZWjVZUlI3TTc2Ui9jZWNhNWQyNDAzOWY0NzRjODEwMDIzNjA3ZWFlZGM2ODFlOTIzMTY0MmVlZTNlNDAxYzg1NGJhMDA3ZGNmZmVlIiwiaSI6MTc5NDEyMTc2NywiZSI6MTc5NDEyMTgyN30.liDNp-VBMPH52O7xKZLInJsLeQkK-lr1iQ6Uxsi7Qyk","origin":"https://files.instinct.com"};
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><div id="root"></div><script>const configuration={"documents":["2L3TNOC4.woff2","6HBTCF3E.woff2","7UAGB34N.woff2","CM4I3IZK.png","DCUCO6EG.woff2","EDUFJISK.woff2","ESVYJHOG.woff2","GWBPHQBQ.woff2","KZYIEKM3.woff2","PQNVRRKH.otf","RK4X2PXO.woff2","WM77GZQE.ttf","XNAEWJ63.png","ZITNQAWX.woff2"],"hasStyles":true,"host":new URL(".", location.href).href.replace(/\/$/,""),"lease":"","origin":"https://files.instinct.com"};
 (() => {
  let lease = configuration.lease;
  const started = performance.now();
@@ -25,11 +25,7 @@
    requests.set(id, result => { clearTimeout(timer); requests.delete(id); resolve(result); });
    send('request', {id, method, params});
  });
- const assetURL = value => {
-   const url = new URL(value, configuration.host + '/');
-   if (url.origin === configuration.host) url.searchParams.set('lease', lease);
-   return url.href;
- };
+ const assetURL = value => new URL(value, configuration.host + '/').href;
  // A link to one of the File's own files (an imported PDF, a copied public/ file) rather than a route; the gateway lists them, since a route can have a dot too, such as /day/11.05.
  const documents = new Set(configuration.documents);
  const fileLink = anchor => {
